@@ -31,9 +31,9 @@ class chessmoves:
 
         p_after_loc = [p_final_row , p_final_col]
 
-        print("black moves")
-        print (p_before_loc) 
-        print(p_after_loc )
+        return[p_name,p_before_loc , p_after_loc]
+
+
         
 
 
@@ -67,7 +67,5 @@ class chessmoves:
 
         p_after_loc = [p_final_row , p_final_col]
 
-        print("white moves")
-        print (p_before_loc) 
-        print(p_after_loc )
+        return[p_name,p_before_loc , p_after_loc]
     
