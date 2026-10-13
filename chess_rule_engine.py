@@ -61,7 +61,7 @@ while True:
             break
 
     if white_move[0] == "r" or "R":
-        piece_check= rules.k_rules(white_move)
+        piece_check= rules.R_rules(white_move)
 
         if piece_check == False:
             break
