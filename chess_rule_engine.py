@@ -22,6 +22,9 @@ class rules:
             print("enter right values")
             return False
 
+        else:
+            return True
+
     def k_rules(position):
 
         [p,[a,b],[x,y]] = position
@@ -38,19 +41,42 @@ class rules:
 
         [p,[a,b],[x,y]] = position
 
-        if (abs(a - x) == 0) or (abs(b - y) == 0) :
+        if ((abs(a - x) == 0) or (abs(b - y) == 0)) and (abs(a - x)  !=  abs(b - y)) :
             return True
 
         else:
             print("invalid Rook move")
             return False
 
+    def B_rules(position):
+
+        [p,[a,b],[x,y]] = position
+
+        if ((abs(a - x) != 0) and (abs(b - y) != 0)) and (abs(a - x)  == abs(b - y)):
+            return True
+
+        else:
+            print("invalid Bishop move")
+            return False
+        
+    def N_rules(position):
+
+        [p,[a,b],[x,y]] = position
+
+        if ((abs(a - x) == 2) and (abs(b - y) == 1)) or ((abs(a - x) == 1) and (abs(b - y) == 2)):
+            return True
+
+        else:
+            print("invalid Night move")
+            return False
 
 
 while True:
+    
     white_move = chessmoves.white_move()
 
     board_check= rules.boardrules(white_move)
+    
     if board_check == False:
         break
 
@@ -63,10 +89,22 @@ while True:
     if white_move[0] == "r" or "R":
         piece_check= rules.R_rules(white_move)
 
+
         if piece_check == False:
             break
 
-    
+    if white_move[0] == "b" or "B":
+        piece_check= rules.B_rules(white_move)
+
+        if piece_check == False:
+            break   
+
+
+    if white_move[0] == "n" or "N":
+        piece_check= rules.N_rules(white_move)
+
+        if piece_check == False:
+            break   
 
 
 
