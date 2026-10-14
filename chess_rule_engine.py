@@ -1,7 +1,6 @@
 import numpy as np
 from chess_moves import chessmoves
 from chess_board import board
-from chess_collision_capture import collision_capture_rule
 
 '''rule engine'''
 
@@ -98,7 +97,7 @@ class rules:
                 return True
 
         else:
-            print("invalid piece move")
+            print("invalid Queen move")
             return False
 
 
@@ -151,6 +150,8 @@ while True:
         if piece_check == False:
             break  
 
+    print(board)
+
 
 
     black_move = chessmoves.black_move()
@@ -160,32 +161,27 @@ while True:
     if board_check == False:
         break
 
-    capture_check = collision_capture_rule(board, white_move)
-
-    if capture_check == False:
-        break
-
     if white_move[0] == "k":
         piece_check= rules.k_rules(white_move)
 
         if piece_check == False:
             break
 
-    if white_move[0] == "r" or "R":
+    if (white_move[0] == "r") or (white_move[0] == "R") :
         piece_check= rules.R_rules(white_move)
 
 
         if piece_check == False:
             break
 
-    if white_move[0] == "b" or "B":
+    if (white_move[0] == "b") or (white_move[0] == "B"):
         piece_check= rules.B_rules(white_move)
 
         if piece_check == False:
             break   
 
 
-    if white_move[0] == "n" or "N":
+    if (white_move[0] == "n") or (white_move[0] == "N"):
         piece_check= rules.N_rules(white_move)
 
         if piece_check == False:
@@ -196,7 +192,7 @@ while True:
         piece_check= rules.P_rules(white_move)
 
         if piece_check == False:
-            break   
+            break  
 
     if white_move[0] == "q":
         piece_check= rules.q_rules(white_move)
@@ -204,5 +200,5 @@ while True:
         if piece_check == False:
             break  
 
-    
+    print(board)
     
