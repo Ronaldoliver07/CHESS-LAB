@@ -1,5 +1,7 @@
 import numpy as np
 from chess_moves import chessmoves
+from chess_board import board
+from chess_collision_capture import collision_capture_rule
 
 '''rule engine'''
 
@@ -158,6 +160,11 @@ while True:
     if board_check == False:
         break
 
+    capture_check = collision_capture_rule(board, white_move)
+
+    if capture_check == False:
+        break
+
     if white_move[0] == "k":
         piece_check= rules.k_rules(white_move)
 
@@ -199,5 +206,3 @@ while True:
 
     
     
-
-
