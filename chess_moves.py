@@ -20,7 +20,7 @@ class chessmoves:
         p_before_loc = [row , col]
 
 
-        ''' Locate final pos of piece '''
+        ''' Locate final pos of piece . '''
 
         p_text_col = move[1]
         p_final_row = move[2]

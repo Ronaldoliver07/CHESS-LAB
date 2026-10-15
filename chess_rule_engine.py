@@ -1,6 +1,6 @@
 import numpy as np
 from chess_moves import chessmoves
-from chess_board import board
+from chess_board import board , white_piece , black_piece
 
 '''rule engine'''
 
@@ -100,6 +100,20 @@ class rules:
             print("invalid Queen move")
             return False
 
+    def w_update_board (position ,before_board):
+        p, [a, b], [x, y] = position
+        before_board[x, y] = white_piece[p]
+        before_board[a, b] = 0
+
+        return before_board
+
+    def b_update_board (position ,before_board):
+        p, [a, b], [x, y] = position
+        before_board[x, y] = black_piece[p]
+        before_board[a, b] = 0
+
+        return before_board
+
 
 
 while True:
@@ -151,6 +165,10 @@ while True:
             break  
 
     print(board)
+    board = rules.w_update_board(white_move, board)
+    print(board)
+
+
 
 
 
@@ -200,5 +218,7 @@ while True:
         if piece_check == False:
             break  
 
+    print(board)
+    board = rules.b_update_board(black_move, board)
     print(board)
     
